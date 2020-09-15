@@ -23,7 +23,6 @@ Rails.application.routes.draw do
       patch "users/authorize/:id", to: "block#authorize", as: "user_authorize"
       get "posts/chart", to: "charts#post_new", as: "chart_post"
       get "users/chart", to: "charts#user_new", as: "chart_user"
-      get "posts/:id/notify/:notification_id", to: "posts#show", as: "post_show_notify"
       resources :users
       resources :posts
       resources :topics

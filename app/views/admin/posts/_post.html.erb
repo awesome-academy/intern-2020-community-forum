@@ -1,5 +1,5 @@
-<tr>
-  <td><%= image_tag post.image_url.to_s %></td>
+ <tr>
+    <td><%= image_tag post.image_url.to_s %></td>
     <td>
       <%= link_to admin_post_path post.id, class: "nav-link active d-inline text-dark" do %>
         <%= post.title %>
@@ -15,7 +15,7 @@
     <td><%= post.name %></td>
     <td><%= post.topic_name %></td>
   <td>
-    <%= link_to edit_admin_post_path(post.id), class: "nav-link active d-inline" do %>
+    <%= link_to edit_admin_post_path post.id, class: "nav-link active d-inline" do %>
       <i class="fas fa-edit nav-icon text-success"></i>
     <% end %>
     <%= link_to admin_post_path(post.id), method: :delete,

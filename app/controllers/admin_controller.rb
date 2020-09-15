@@ -4,21 +4,10 @@ class AdminController < ActionController::Base
   include SessionsHelper
 
   before_action :set_locale
-  before_action :load_notify
 
   add_breadcrumb I18n.t("dashboard.breadcrumbs.home"), :admin_root_path
 
-  helper_method :get_all_notification, :get_uncheck_notification
-
   private
-
-  def get_uncheck_notification
-    @number = Notification.uncheck.count
-  end
-
-  def get_all_notification
-    @notifications.order_created_at.take Settings.user.page
-  end
 
   def set_locale
     I18n.locale = extract_locale || I18n.default_locale
@@ -47,9 +36,5 @@ class AdminController < ActionController::Base
 
     flash[:danger] = t "users.controller.not_found"
     redirect_to admin_root_path
-  end
-
-  def load_notify
-    @notifications = Notification.includes :user, :post
   end
 end

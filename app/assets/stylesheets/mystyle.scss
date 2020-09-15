@@ -753,21 +753,6 @@
     }
   }
 }
-.login-box, .register-box{
-  width: 433px;
-  margin: 7% auto;
-
-  .login-logo, .register-logo {
-    font-size: 28px;
-    text-align: center;
-    margin-bottom: 25px;
-    font-weight: 300;
-  }
-
-  .btn-block {
-    margin-bottom: 10px;
-  }
-}
 
 .empty-data {
   color: $gray;

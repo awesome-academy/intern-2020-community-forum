@@ -14,9 +14,6 @@ class Post < ApplicationRecord
 
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
-  has_many :notifications, dependent: :destroy
-
-  after_commit :notify
 
   has_many :post_marks, dependent: :destroy, counter_cache: true
   has_many :mark_users, through: :post_marks, source: :user
@@ -60,34 +57,5 @@ class Post < ApplicationRecord
 
   def reject_tags attributes
     attributes[:name].blank?
-  end
-
-  def get_action notify
-    if transaction_include_any_action?([:create])
-      notify.created!
-    elsif transaction_include_any_action?([:update])
-      notify.updated!
-    else
-      notify.deleted!
-    end
-  end
-
-  def notify
-    @notify = Notification.create(post_id: id, user_id: user_id)
-    get_action @notify
-    User.admin.each do |user|
-      ActionCable.server.broadcast "notification_channel_#{user.id}", content:
-        {notification_html: notification_html, count: Notification.uncheck.size}
-    end
-  end
-
-  def notification_html
-    @notify = Notification.includes :user, :post
-    AdminController.render(
-      partial: "admin/notifications/notification_center",
-      locals: {notifications:
-        @notify.order_created_at.take(Settings.user.validates.page)},
-      formats: [:html]
-    )
   end
 end

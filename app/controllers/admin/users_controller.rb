@@ -30,7 +30,7 @@ class Admin::UsersController < AdminController
       redirect_to admin_root_path
     else
       flash.now[:danger] = t "users.controller.signup_fail"
-      redirect_to admin_signup_path
+      redirect_to admin_login_path
     end
   end
 

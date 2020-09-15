@@ -31,7 +31,6 @@ gem "pry-rails", group: :development
 gem "puma", "~> 4.1"
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
 gem "rails-i18n"
-gem "redis"
 gem "sass-rails", ">= 6"
 gem "select2-rails"
 gem "turbolinks", "~> 5"
