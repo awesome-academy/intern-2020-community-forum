@@ -22,7 +22,7 @@ class Admin::UsersController < AdminController
   end
 
   def update
-    if @user.update user_params
+    if @user.update_without_password user_params
       flash[:notice] = t "users.update.success"
       redirect_to admin_users_path
     else

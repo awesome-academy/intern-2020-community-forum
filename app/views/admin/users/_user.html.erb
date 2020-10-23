@@ -1,5 +1,5 @@
 <tr>
-  <td><%= image_tag user.avatar_url.to_s, size: "150x150" %></td>
+  <td class="post-img"><%= image_tag user.avatar_url.to_s, size: "150x150" %></td>
   <td>
     <%= link_to user.name, admin_user_path(user.id), class: "text-dark" %>
   </td>
@@ -13,7 +13,7 @@
     <%= content_tag(:div, content_tag(:span, user_role(user.member?)[:status]), class: "status #{user_role(user.member?)[:css]}") %>
   </td>
   <td>
-    <%= link_to admin_user_get_posts_path(user), remote: true, class: "btn btn-info", "data-toggle": :modal, "data-target": "#modal-user" do %>
+    <%= link_to admin_user_get_posts_path(user), remote: true, class: "btn post-count", "data-toggle": :modal, "data-target": "#modal-user" do %>
       <%= user.posts_count %>
     <% end %>
   </td>

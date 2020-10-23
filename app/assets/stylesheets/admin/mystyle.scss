@@ -1,31 +1,41 @@
 @import 'colors';
 
 .status {
-  color: $white;
   padding: 5px 5px;
 }
 
-.on, .member, .active{
+.on, .active{
   span{
-    background-color: $green;
-    padding: 10px 10px;
-    color: $white;
+    background-color: $white !important;
+    padding: 10px 10px !important;
+    color: $green !important;
+    font-weight: 600;
+  }
+}
+
+.member{
+  span{
+    background-color: $white !important;
+    padding: 10px 10px !important;
+    color: $green !important;
+    font-weight: 600;
   }
 }
 
 .off, .admin, .block{
   span{
-    background-color: $red;
-    padding: 10px 10px;
-    color: $white;
+    background-color: $white !important;
+    padding: 10px 10px !important;
+    color: $red !important;
+    font-weight: 600;
   }
 }
 
 .pending, .block{
   span{
-    background-color: $yellow ;
+    font-weight: 600;
     padding: 10px 10px;
-    color: $white;
+    color: $yellow;
   }
 }
 
@@ -213,3 +223,20 @@ input#post_image {
   width: 50px;
   height: 50px;
 }
+<<<<<<< HEAD
+=======
+
+.post-img{
+  height: fit-content;
+  width: fit-content;
+  img{
+    height: 100px;
+    width: 100px;
+    border-radius: 0;
+  }
+}
+
+.post-count{
+  background: $gray;
+}
+>>>>>>> Fix_project2

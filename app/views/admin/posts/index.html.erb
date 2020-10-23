@@ -3,7 +3,7 @@
     <h3 class="card-title"><%= t "post.index.title" %></h3>
   </div>
   <div class="card-body">
-    <table id="example1" class="table table-bordered table-striped">
+    <table id="example1" class="table table-bordered">
       <div class="input-group input-group-sm">
         <%= render "filter" %>
       </div>
@@ -17,7 +17,7 @@
         <%= render "colums" %>
       </thead>
       <tbody>
-        <%= form_with url: admin_check_posts_path, local: true, method: :patch do |f| %>
+        <%= form_with url: admin_check_posts_path, remote: true, method: :patch do |f| %>
           <div id="post-status" class="sticky-top d-flex justify-content-end">
             <div class="card-footer">
               <%= f.submit t("posts.show.on_post"), class: "btn btn-success" %>

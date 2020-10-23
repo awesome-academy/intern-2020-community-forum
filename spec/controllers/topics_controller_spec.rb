@@ -6,6 +6,7 @@ RSpec.describe TopicsController, type: :controller do
   describe "Login" do
     before {logout user_1}
     before {get :index, params: {user_id: user_1.id}}
+
     context "as a guest"  do
       it {expect(response).to redirect_to new_user_session_path(locale: nil)}
     end
