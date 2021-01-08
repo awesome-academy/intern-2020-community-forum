@@ -2,31 +2,29 @@
   <td>
     <%= check_box_tag "post_ids[]", post.id -%>
   </td>
-  <td class="post-img"><%= image_tag post.image_url.to_s %></td>
-    <td>
-      <div class="card-footer">
-        <% if post.post_reports.count > Settings.report.number.no_report %>
-          <%= link_to admin_post_get_reports_path(post.id), remote: true, class: "report-btn", "data-toggle": :modal, "data-target": "#modal-post" do %>
-            <span><%= post.post_reports.count %></span>
-            <i class="fas fa-exclamation-triangle"></i>
-          <% end %>
+  <td><%= load_user_avatar post.user %></td>
+  <td>
+    <div class="card-footer">
+      <% if post.post_reports.count > Settings.report.number.no_report %>
+        <%= link_to admin_post_get_reports_path(post.id), remote: true, class: "report-btn", "data-toggle": :modal, "data-target": "#modal-post" do %>
+          <span><%= post.post_reports.count %></span>
+          <i class="fas fa-exclamation-triangle"></i>
         <% end %>
-        <%= link_to admin_post_path post.id, class: "nav-link active d-inline text-dark" do %>
-          <%= post.title %>
-        <% end %>
-      </div>
-    </td>
-    <td>
-      <div class="status <%= post_status(post)[:css] %>">
-        <span>
-          <%= post_status(post)[:status] %>
-        </span>
-      </div>
-    </td>
-    <td>
-      <%= link_to post.name, admin_user_path(post.user.id), class: "text-success" %>
-    </td>
-    <td><%= post.topic_name %></td>
+      <% end %>
+      <%= link_to post.title, admin_post_path(post.id), class: "nav-link active d-inline text-dark" %>
+    </div>
+  </td>
+  <td>
+    <div class="status <%= post_status(post)[:css] %>">
+      <span>
+        <%= post_status(post)[:status] %>
+      </span>
+    </div>
+  </td>
+  <td>
+    <%= link_to post.name, admin_user_path(post.user_id), class: "text-success" %>
+  </td>
+  <td><%= post.topic_name %></td>
   <td>
     <%= link_to edit_admin_post_path(post.id), class: "nav-link active d-inline" do %>
       <i class="fas fa-edit nav-icon text-success"></i>

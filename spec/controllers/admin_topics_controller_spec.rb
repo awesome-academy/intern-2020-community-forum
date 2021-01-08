@@ -97,6 +97,7 @@ RSpec.describe Admin::TopicsController, type: :controller do
         let(:topic_params) do
           {
             topic: {
+              name: "topic",
               status: "on"
             }
           }
@@ -104,7 +105,7 @@ RSpec.describe Admin::TopicsController, type: :controller do
         let(:invalid_topic_params) do
           {
             topic: {
-              title: nil,
+              name: nil,
               status: "on"
             }
           }

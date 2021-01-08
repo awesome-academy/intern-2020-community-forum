@@ -32,7 +32,7 @@
           <div class="form-group">
             <p>
               <label class="d-block"><%= t "post.edit.post_image" %></label>
-              <%= image_tag(@post.image_url, class: "post-img") if @post.image? %>
+              <%= load_user_avatar @post.user %>
             </p>
           </div>
         </div>

@@ -387,6 +387,11 @@ en:
     authorize:
       admin: "Admin"
       member: "Member"
+  follower_mailer:
+    follower_email:
+      send_mail: "Send"
+      title: "%{name} just has sent a post"
+      content: "A post with title %{title} just has been published by your friend %{name}"
   topics:
     index:
       topics: Topics

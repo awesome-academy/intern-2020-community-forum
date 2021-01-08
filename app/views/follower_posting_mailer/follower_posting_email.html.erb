@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+  <h1>
+    <%= t "follower_mailer.follower_email.title", name: @post.name %>
+  </h1>
+  <p>
+    <%= t "follower_mailer.follower_email.content", name: @post.name,
+        title: @post.title %>
+  </p>
+</body>
+</html>

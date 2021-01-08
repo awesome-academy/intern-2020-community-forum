@@ -1,5 +1,5 @@
 <tr>
-  <td class="post-img"><%= image_tag user.avatar_url.to_s, size: "150x150" %></td>
+  <td><%= load_user_avatar current_user %></td>
   <td>
     <%= link_to user.name, admin_user_path(user.id), class: "text-dark" %>
   </td>

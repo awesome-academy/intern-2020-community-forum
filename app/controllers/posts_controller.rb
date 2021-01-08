@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build post_params
     if @post.save
       flash[:notice] = t ".post_created"
+      FollowerPostingWorker.perform_async @post.id
       redirect_to current_user
     else
       flash[:alert] = t ".post_create_failed"

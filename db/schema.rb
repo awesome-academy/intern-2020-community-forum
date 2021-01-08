@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_10_18_034430) do
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "album_id"
+    t.string "image"
   end
 
   create_table "post_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -164,7 +165,7 @@ ActiveRecord::Schema.define(version: 2020_10_18_034430) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "image"
-    t.datetime "off_date", default: "2020-10-07 03:34:03"
+    t.datetime "off_date", default: "2020-10-08 01:53:24"
     t.integer "posts_report", default: 0, null: false
     t.index ["topic_id"], name: "index_posts_on_topic_id"
     t.index ["user_id", "created_at", "topic_id"], name: "index_posts_on_user_id_and_created_at_and_topic_id"
@@ -237,8 +238,7 @@ ActiveRecord::Schema.define(version: 2020_10_18_034430) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
-    t.datetime "warning_date", default: "2020-10-07 03:34:03"
-    t.integer "warning_number", default: 0, null: false
+    t.datetime "warning_date", default: "2020-10-08 01:53:24"
     t.string "provider"
     t.string "uid"
     t.string "image"
