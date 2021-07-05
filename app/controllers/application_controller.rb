@@ -63,4 +63,5 @@ class ApplicationController < ActionController::Base
   def load_uncheck_notification_count
     current_user.notifications.uncheck.updated.count
   end
+  ahuhu
 end
